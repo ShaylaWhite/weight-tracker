@@ -24,24 +24,17 @@ class UsersController < ApplicationController
     end
 
     get '/signup' do
-    erb :signup
+    erb :"/users/signup"
     end
 
     #persits user here with name,email,pw
     post '/users' do
-        @user = User.new
-        @user.email = params[:email]
-        @user.password = params[:password]
-        @user.name = params[:name]
+      user = User.create(params)
 
-        if @user.save
         #flash.now[:success] = "You are now Signed Up, Please login!
-        redirect '/login'
-        else
-        #flash.now[:danger] = "Sorry Something Went Wrong Sign Up Again"
-            erb :signup
-        end
-    end
+        redirect to "/users/#{user.id}"
+    end 
+        
 
     get '/users/:id' do
         @user = User.find_by(id:params[:id])
