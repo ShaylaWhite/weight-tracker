@@ -6,40 +6,50 @@ class UsersController < ApplicationController
 
 
     post '/login' do
-        @user = User.find_by(email: params[:email])
-        if @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
+        user = User.find_by(email: params[:email])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
             #flash[:success] = "#{@user.email}, Successfully Logged In"
 
-            redirect to "/users/#{@user.id}"
+            redirect to "/users/#{user.id}"
         else
             #flash.now[:danger] = "Incorrect User/Password. Please login again!"
-            redirect '/login'
+            redirect '/signup'
         end
     end
         
-    get '/logout' do
-        session.clear
-        redirect '/'
-    end
 
     get '/signup' do
     erb :"/users/signup"
     end
 
     #persits user here with name,email,pw
-    post '/users' do
-      user = User.create(params)
-
-        #flash.now[:success] = "You are now Signed Up, Please login!
-        redirect to "/users/#{user.id}"
-    end 
-        
+    post '/signup' do
+        user = User.create(params)
+        if user.valid?
+          session[:user_id] = user.id
+          redirect to "/users/#{user.id}"
+        else
+          redirect to '/signup'
+        end
+      end
 
     get '/users/:id' do
-        @user = User.find_by(id:params[:id])
-        @stat = Stat.find_by(id:params[:id])
+        
+        if User.find_by(id: params[:id]) 
+            @user = User.find_by(id:params[:id])
+            @stats = @user.stats
+        else 
+           redirect to '/'
+        end 
+            erb :'users/show'
+         end 
+         
+         get '/logout' do
+            session.clear
+            redirect '/'
+        end
+    
 
-        erb :'/users/show'
     end 
-end 
+
