@@ -18,7 +18,7 @@ class StatsController < ApplicationController
         if !Helpers.is_logged_in?(session)
           redirect '/'
         end
-        @stats = Stat.find_by(id: params[:id])
+        @stat = Stat.find_by(id: params[:id])
         if !@Stat
           redirect to '/'
         end
@@ -35,6 +35,25 @@ class StatsController < ApplicationController
       end
       erb :'/stats/edit'
     end
+
+    patch '/stats/:id' do
+        @stat = Stat.find_by(id: params[:id])
+        if stat && stat.user == Helpers.current_user(session)
+          stat.update(params[:stat])
+          redirect to "/stats/#{stat.id}"
+        else
+          redirect to "/stats"
+        end
+      end
+    
+      delete '/stats/:id/delete' do
+        stat = Stat.find_by(id: params[:id])
+        if stat && stat.user == Helpers.current_user(session)
+          stat.destroy
+        end
+        redirect to '/stats'
+      end
+    
   
 
 end
