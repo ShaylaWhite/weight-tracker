@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
+  
+
   <body>
     <ul class="nav">
     <a href="/"> | Home |</a>
@@ -21,13 +23,15 @@
     <a href="/signup">| SignUp |</a>
    
   </ul>
-   
+   <img src="images/WEIGHT - TRACKER.jpg" class="img-responsive main-image" width="200px" height="150px">
+  
+   <br>
     <div class="wrapper">
 
         <%= yield %>
 
    <div class="sidebar">
-      <h3>User Shortcuts</h3>
+      User Shortcuts
       <ul>
            
         <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>"> | My Stats |</a></li>
@@ -41,7 +45,7 @@
 
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>WeightTracker</strong></small>
+       
       </footer>
     </div>
 
