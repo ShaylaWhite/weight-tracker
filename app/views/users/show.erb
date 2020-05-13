@@ -4,8 +4,13 @@
     <h2>My Weight Statues</h2>
     <p> Here are your Weight Stats, <%= @user.name %>
     <div class="content">
-     <p>Stats</p>
+    <% @stats.each do |stat| %>
+        <li><a href="/stats/<%=stat.id%>"> <%= stat.weight %> </a></li>
+      <%end%>
+    
     </div>
-
    
+   
+
+    
  
