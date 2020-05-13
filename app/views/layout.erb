@@ -30,7 +30,7 @@
       <h3>User Shortcuts</h3>
       <ul>
 
-        <li><a href=""> | My Stats |</a></li>
+        <li><a <a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>"> | My Stats |</a></li>
         <li><a href=""> | Create New Stat |</a></li>
         <li><a href="/users">| See All Users |</a><li>
         <li></li>
