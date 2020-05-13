@@ -9,5 +9,13 @@
 
     <h3><%= @stat.weight %></h3>
 
+    
+<% if Helpers.current_user(session) == @stat.user %>
+<a href="/stats/<%=@stat.id%>/edit">Edit Weight</a>
+<form action="/stats/<%=@stat.id%>/delete" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+</form>
+
   </div>
 </div>
