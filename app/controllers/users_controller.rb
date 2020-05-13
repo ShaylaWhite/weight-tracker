@@ -14,7 +14,7 @@ class UsersController < ApplicationController
             redirect to "/users/#{user.id}"
         else
             #flash.now[:danger] = "Incorrect User/Password. Please login again!"
-            redirect '/signup'
+            redirect '/login'
         end
     end
         
@@ -25,14 +25,16 @@ class UsersController < ApplicationController
 
     #persits user here with name,email,pw
     post '/signup' do
-        user = User.create(params)
-        if user.valid?
-          session[:user_id] = user.id
-          redirect to "/users/#{user.id}"
+        @user = User.create(params)
+        if @user.valid?
+            binding.pry
+          session[:user_id] = @user.id
+          redirect to "/users/#{@user.id}"
         else
           redirect to '/signup'
         end
       end
+
 
     get '/users/:id' do
         
