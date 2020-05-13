@@ -1,0 +1,14 @@
+<div class="container">
+ 
+    <h2>Weight-Tracker Family</h2>
+
+    <div class="content">
+    <h3>All of Your Weights in the Weight Tracker Family:</h3>
+
+    <% @stats.each do |stat| %>
+      <p> <a href="/stats/<%=stat.id%>"> <%= stat.name %> </a></p>
+    <%end%>
+    </div>
+
+  </div>
+</div>

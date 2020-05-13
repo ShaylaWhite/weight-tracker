@@ -3,6 +3,8 @@
 <form action="/stats/<%= @stat.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <label>Weight </label>
-  <input type="text" name="stat[weight]" value="<%=@stat.name%>"/><br />
-  <input type="submit" value="Edit Recipe">
+  <input type="text" name="stat[weight]" value="<%=@stat.weight%>"/><br />
+  <input type="submit" value="Edit Weight">
+
+
 </form>
