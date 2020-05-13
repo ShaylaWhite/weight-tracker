@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <ul class="nav">
+    <a href="/"> | Home |</a>
+    <a href="/login">| Login |</a>
+    <a href="/logout">| Logout |</a>
+    <a href="/signup">| SignUp |</a>
+   
+  </ul>
+
     <div class="wrapper">
 
         <%= yield %>
@@ -21,10 +29,10 @@
    <div class="sidebar">
       <h3>User Shortcuts</h3>
       <ul>
-        <li>Home</li>
-        <li><a href="">My Stats</a></li>
-        <li><a href="">Create New Stat</a></li>
-        <li><a href="/users">See All Users</a><li>
+
+        <li><a href=""> | My Stats |</a></li>
+        <li><a href=""> | Create New Stat |</a></li>
+        <li><a href="/users">| See All Users |</a><li>
         <li></li>
       </ul>
     </div>
