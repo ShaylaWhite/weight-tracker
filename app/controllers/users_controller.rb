@@ -1,9 +1,26 @@
 class UsersController < ApplicationController 
 
+    get '/users' do
+        @users = User.all
+        erb :"/users/index"
+    end
+    
+
     get '/login' do
-        erb :'/users/login'
+        if Helpers.is_logged_in?(session)
+            user = Helpers.current_user(session)
+            redirect to "/users/#{user.id}"
+        end 
+            erb :'/users/login'
     end
 
+    get '/signup' do
+        if Helpers.is_logged_in?(session)
+            user = Helpers.current_user(session)
+            redirect to "/users/#{user.id}"
+        end 
+        erb :"/users/signup"
+    end
 
     post '/login' do
         user = User.find_by(email: params[:email])
@@ -14,27 +31,22 @@ class UsersController < ApplicationController
             redirect to "/users/#{user.id}"
         else
             #flash.now[:danger] = "Incorrect User/Password. Please login again!"
-            redirect '/login'
+            redirect '/signup'
         end
     end
         
-
-    get '/signup' do
-    erb :"/users/signup"
+    post '/signup' do
+        if user = User.create(params)
+            session[:user_id] = user.id
+            redirect to "/users/#{user.id}"
+        else
+             redirect to '/signup'
+        end
     end
 
+ 
     #persits user here with name,email,pw
-    post '/signup' do
-        @user = User.create(params)
-        if @user.valid?
-            binding.pry
-          session[:user_id] = @user.id
-          redirect to "/users/#{@user.id}"
-        else
-          redirect to '/signup'
-        end
-      end
-
+  
 
     get '/users/:id' do
         

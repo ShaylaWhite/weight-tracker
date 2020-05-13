@@ -10,4 +10,4 @@ class Helpers
       !!session[:user_id]
     end
   end
-  
+  #is there a session user id key true or false
