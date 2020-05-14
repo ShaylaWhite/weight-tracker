@@ -1,7 +1,7 @@
 class StatsController < ApplicationController 
 
     get '/stats' do
-        @stats = Stats.all
+        @stats = Stat.all
         erb :'stats/index'
       end
   
