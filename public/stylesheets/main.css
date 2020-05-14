@@ -14,11 +14,12 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: white);
     color: rgb(255, 255, 255);
     font-family: Sans-Serif;
     line-height: 18px;
   }
+ 
+
 
   .wrapper {
     background: rgb(0, 0, 0);
@@ -111,6 +112,11 @@
   h2 {
     font-size: 18px;
     line-height: 24px;
+    color: blue;
+  }
+
+  img {
+    display: inline-block;
   }
 
   .sidebar li{

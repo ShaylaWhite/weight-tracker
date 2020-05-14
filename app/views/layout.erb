@@ -14,26 +14,26 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=VT323" />
   </head>
-  
+
 
   <body>
   <br>
   <br>
+  <h1>WEIGHT-TRACKER</h1>
   <% if Helpers.is_logged_in?(session) %>
     <ul class="nav">
     <a href="/"> | Home |</a>
     <a href="/login">| Login |</a>
     <a href="/logout">| Logout |</a>
     <a href="/signup">| SignUp |</a>
- 
 
    <%end%>
   </ul>
  
   <div class="wrapper">
-
+  <h2>  | WEIGHT - TRACKER | </h2>
          <div class="sidebar">
-
+        
 
  <% if Helpers.is_logged_in?(session) %>
          <p> Hello Welcome to Weight-Tracker</p>
@@ -55,7 +55,7 @@
 
 
       <footer class="branding">
-       
+
       </footer>
     </div>
 
