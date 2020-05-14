@@ -36,7 +36,7 @@
         
 
  <% if Helpers.is_logged_in?(session) %>
-         <p> Hello Welcome to Weight-Tracker</p>
+         <p> You are Logged-In</p>
           <ul>  
           <li><a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>"> | My Weight Log |</a></li>
           <li><a href="/stats/new"> | Enter New Weight |</a></li>

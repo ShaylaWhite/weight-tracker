@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController 
 
     get '/users' do
@@ -29,12 +30,11 @@ class UsersController < ApplicationController
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
-            #flash[:success] = "#{@user.email}, Successfully Logged In"
 
             redirect to "/users/#{user.id}"
         else
-            #flash.now[:danger] = "Incorrect User/Password. Please login again!"
-            redirect '/signup'
+            
+            redirect '/login'
         end
     end
         
@@ -63,6 +63,7 @@ class UsersController < ApplicationController
       
         get '/logout' do
           session.clear
+        
           redirect to '/'
         end
       
