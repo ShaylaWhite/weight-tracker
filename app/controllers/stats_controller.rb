@@ -4,8 +4,6 @@ class StatsController < ApplicationController
         @stats = Stats.all
         erb :'stats/index'
       end
-
-
   
     get '/stats/new' do
         if !Helpers.is_logged_in?(session)
@@ -15,7 +13,7 @@ class StatsController < ApplicationController
       end
     
       post '/stats' do
-        stats = Stat.create(params)
+        stat = Stat.create(params)
         user = Helpers.current_user(session)
         stat.user = user
         stat.save

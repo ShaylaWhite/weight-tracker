@@ -1,16 +1,19 @@
 <div class="container">
+ <div class="content">
   
-    <h2>My Stats</h2>
+    <h1>My Weight Entry is</h1>
 
-    <div class="content">
-     <p></p>
-     <p>Keep Track of Your Weight</p>
-    </div>
+    <h1><%= @stat.weight %></h1>
 
-    <h3><%= @stat.weight %></h3>
-
+  
     
 <% if Helpers.current_user(session) == @stat.user %>
+<p>If Correct Weight, Please see:</p>
+
+<a href="/users/<%=Helpers.current_user(session).id if Helpers.is_logged_in?(session)%>">  My Weight Log </a>  </p>
+<br> 
+
+<p>If Not Edit or Delete Weight Entry Here</p>
 <a href="/stats/<%=@stat.id%>/edit">Edit Weight</a>
 <form action="/stats/<%=@stat.id%>/delete" method="post">
   <input type="hidden" name="_method" value="delete">
@@ -18,4 +21,5 @@
 </form>
 <%end%>
   </div>
-</div>
+  </div>
+

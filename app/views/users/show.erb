@@ -1,14 +1,25 @@
-<div class="container">
-  <header><img src="images/corneal-small.png" class="img-responsive main-image"></header>
-  <div class="col-md-8 col-md-offset-2">
-    <h2>My Weight Statues</h2>
-    <p> Here are your Weight Stats, <%= @user.name %>
-    <div class="content">
+
+  <div class="container">
+  <div class="content">
+     <h1> Hello <%= @user.name %> </h1>
+    
+     <br>
+     <p> Your Weights Are:</p>
+     <br>
     <% @stats.each do |stat| %>
         <li><a href="/stats/<%=stat.id%>"> <%= stat.weight %> </a></li>
-      <%end%>
+    <%end%>
+
+    <br>
+    <p>  Select A Weight Entry to 
+    Edit or Delete!
+   </p>
+      
     
     </div>
+    </div>
+    
+
    
    
 
