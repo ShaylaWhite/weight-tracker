@@ -2,13 +2,12 @@
 Weight-Tracker
 
 
-Weight-Tracker was created to Allow users to track theor weights and keep up with their freinds and family weight progress as well as their own. Since the start of COVID-19 my freinds and I made a commitment and a competion to hold each other accountable and weight-tracker is perfect for this purpose.
+Weight-Tracker was created to Allow users to track their weights and keep up with their freinds and family weight progress as well. 
+Since the start of COVID-19 my freinds and I have made a commitment  to hold each other accountable and encourage each other to stay healthy.
+Weight-tracker is the perfect app for this commitment. 
 
 Usage
 To use this app, just clone, run rake db:migrate and then run shotgun. Everything should be set up.
-
-
-
 
 
 
