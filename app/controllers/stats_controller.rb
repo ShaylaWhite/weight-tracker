@@ -1,9 +1,13 @@
 class StatsController < ApplicationController 
 
     get '/stats' do
-        @stats = Stat.all
-        erb :'stats/index'
+      if !Helpers.is_logged_in?(session)
+        redirect '/'
       end
+        @stats = Stat.all
+        erb :'stats/index' 
+     
+    end
   
     get '/stats/new' do
         if !Helpers.is_logged_in?(session)
@@ -55,6 +59,7 @@ class StatsController < ApplicationController
         if stat && stat.user == Helpers.current_user(session)
           stat.destroy
         end
-        redirect to '/stats'
-      end
-    end
+        redirect to '/'
+       end
+      
+  end

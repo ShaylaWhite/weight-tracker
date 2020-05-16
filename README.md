@@ -7,7 +7,8 @@ Since the start of COVID-19 my freinds and I have made a commitment  to hold eac
 Weight-tracker is the perfect app for this commitment. 
 
 Usage
-To use this app, just clone, run rake db:migrate and then run shotgun. Everything should be set up.
+To use this app, just clone, run rake db:migrate and then run shotgun. 
+
 
 
 

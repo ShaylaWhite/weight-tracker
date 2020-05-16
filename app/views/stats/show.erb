@@ -16,6 +16,7 @@
 <p>If Not Edit or Delete Weight Entry Here</p>
 <a href="/stats/<%=@stat.id%>/edit">Edit Weight</a>
 <form action="/stats/<%=@stat.id%>/delete" method="post">
+<form action="/stats/<%= @stat.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete">
 </form>

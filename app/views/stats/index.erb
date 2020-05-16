@@ -3,8 +3,7 @@
     <h1>Your Personal Weight Log</h1>
 
     <% @stats.each do |stat| %>
-      <p> <a href="/stats/<%=stat.id%>"> <%= stat.weight %> </a></p>
-    <%end%>
-
+      <li><a href="/stats/<%=stat.id%>"> <%= stat.weight %> </a></li>
+  <%end%>
   </div>
 </div>
