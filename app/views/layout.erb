@@ -19,17 +19,22 @@
   <body>
   <br>
   <br>
-  
+
+
+
   <% if Helpers.is_logged_in?(session) %>
     <ul class="nav">
     <a href="/"> | Home |</a>
     <a href="/login">| Login |</a>
     <a href="/logout">| Logout |</a>
     <a href="/signup">| SignUp |</a>
-
    <%end%>
   </ul>
+
+
  
+
+
   <div class="wrapper">
 <h1>WEIGHT-TRACKER</h1>
          <div class="sidebar">
@@ -44,8 +49,14 @@
           <li></li>
           </ul>
    <%end%> 
- </div>   
-   
+
+
+   </div>   
+    <div id= "notice">
+    <% if flash[:message] %>
+    <h1><%= flash[:message] %></h1>
+    <%end%> 
+  </div>
 
    
    <%= yield %>

@@ -59,6 +59,7 @@ class StatsController < ApplicationController
         if stat && stat.user == Helpers.current_user(session)
           stat.destroy
         end
+        flash[:message] = "***Your stat is now deleted**"
         redirect to '/'
        end
       

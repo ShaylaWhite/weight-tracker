@@ -1,4 +1,4 @@
-require 'sinatra/flash'
+
 
 class UsersController < ApplicationController 
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
             user = Helpers.current_user(session)
             redirect to "/users/#{user.id}"
         end 
-            flash[:error] = "Invalid email or password"
+        flash[:message] = "***Welcome Back***"
             erb :'/users/login'
     end
 
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
             redirect to "/users/#{user.id}"
         else
-            
+            flash[:message] = "***INVALID EMAIL OR PASSWORD***"
             redirect '/login'
         end
     end
@@ -45,6 +45,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to "/users/#{user.id}"
         end
+        flash[:message] = "***SIGN UP NO COMPLETE***"
              redirect to '/signup'
     end
 
@@ -65,7 +66,7 @@ class UsersController < ApplicationController
       
         get '/logout' do
           session.clear
-        
+          flash[:message] = "***YOU ARE NOW LOGGED OUT***"
           redirect to '/'
         end
       
