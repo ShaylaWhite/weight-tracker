@@ -10,11 +10,11 @@
 
 
     <label for="name"> | My name is | </label>
-    <input type="text"  name="name"   value="">
+    <input type="text"  name="name"   value="" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,20}" placeholder="Please Enter Name, Only letters are permitted"  >
     <br>
 
     <label for="email"> | Please Enter Your Email | </label>
-    <input type="email"  name="email"   value="">
+    <input type="email"  name="email"   value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  >
     <br>
 
     <label for="password"> | Please Enter Your Password | </label>

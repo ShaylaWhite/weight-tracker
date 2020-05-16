@@ -1,3 +1,4 @@
+require 'sinatra/flash'
 
 class UsersController < ApplicationController 
 
@@ -15,6 +16,7 @@ class UsersController < ApplicationController
             user = Helpers.current_user(session)
             redirect to "/users/#{user.id}"
         end 
+            flash[:error] = "Invalid email or password"
             erb :'/users/login'
     end
 
